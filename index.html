@@ -1,0 +1,182 @@
+<!doctype html>
+<html lang="tr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#0f172a">
+  <title>Fiyat Alarmı</title>
+  <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+  <header class="topbar">
+    <div class="wrap topbar-inner">
+      <button class="brand" data-tab="create" aria-label="Ana sayfa">
+        <span class="logo">₺</span>
+        <span>
+          <strong>Fiyat Alarmı</strong>
+          <small>AI destekli fiyat takibi</small>
+        </span>
+      </button>
+
+      <nav class="nav" aria-label="Ana menü">
+        <button class="nav-btn active" data-tab="create">Alarm Oluştur</button>
+        <button class="nav-btn" data-tab="trackers">Takiplerim</button>
+        <button class="nav-btn" data-tab="about">Nasıl Çalışır?</button>
+      </nav>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <section class="notice">
+      <span class="dot"></span>
+      Fiyatlar farklı mağazalardan kontrol edilir. Satın almadan önce mağaza sayfasındaki son fiyatı doğrula.
+    </section>
+
+    <section id="tab-create" class="tab active">
+      <div class="hero">
+        <div>
+          <span class="eyebrow">NVIDIA AI DESTEKLİ</span>
+          <h1>Ürünü yaz.<br>Fiyatı biz takip edelim.</h1>
+          <p>
+            Bir ürün adı veya linki gir. Hedef fiyatını belirle.
+            Fiyat düştüğünde e-posta ile haber al.
+          </p>
+        </div>
+        <div class="hero-icon">🔔</div>
+      </div>
+
+      <div class="card form-card">
+        <form id="alarmForm">
+          <div class="field">
+            <label for="query">Ürün adı veya ürün linki</label>
+            <input
+              id="query"
+              name="query"
+              minlength="2"
+              required
+              placeholder="Örn: Xiaomi Redmi Watch 5"
+              autocomplete="off"
+            >
+            <div class="help">Ürün adı yazabilir veya mağaza linkini yapıştırabilirsin.</div>
+          </div>
+
+          <div class="form-grid">
+            <div class="field">
+              <label for="targetPrice">Hedef fiyat</label>
+              <div class="input-addon">
+                <input id="targetPrice" type="number" min="1" step="0.01" required placeholder="3500">
+                <span>TL</span>
+              </div>
+            </div>
+
+            <div class="field">
+              <label for="email">E-posta</label>
+              <input id="email" type="email" required placeholder="ornek@mail.com">
+            </div>
+          </div>
+
+          <button class="primary" type="submit" id="submitBtn">
+            <span>🔔</span> Alarm Oluştur
+          </button>
+
+          <div id="formMessage" class="form-message" role="status"></div>
+        </form>
+      </div>
+
+      <div class="mini-grid">
+        <article class="mini-card">
+          <span class="mini-icon">🔎</span>
+          <strong>Birden fazla kaynak</strong>
+          <p>Tek mağazaya bağlı kalmadan farklı sonuçları karşılaştırır.</p>
+        </article>
+        <article class="mini-card">
+          <span class="mini-icon">🤖</span>
+          <strong>AI ürün eşleştirme</strong>
+          <p>Yanlış model ve aksesuar sonuçlarını ayıklamaya yardımcı olur.</p>
+        </article>
+        <article class="mini-card">
+          <span class="mini-icon">📩</span>
+          <strong>Fiyat alarmı</strong>
+          <p>Hedef fiyat yakalandığında sana haber verir.</p>
+        </article>
+      </div>
+    </section>
+
+    <section id="tab-trackers" class="tab">
+      <div class="section-heading">
+        <div>
+          <h2>Takip Ettiklerim</h2>
+          <p>Bu cihazdan oluşturduğun fiyat alarmları.</p>
+        </div>
+        <button class="secondary" id="refreshBtn">↻ Yenile</button>
+      </div>
+
+      <div id="trackerList">
+        <div class="empty-state">
+          <span>🔔</span>
+          <h3>Henüz fiyat alarmın yok</h3>
+          <p>Bir ürün eklediğinde burada görünecek.</p>
+          <button class="secondary" data-tab="create">İlk alarmı oluştur</button>
+        </div>
+      </div>
+    </section>
+
+    <section id="tab-about" class="tab">
+      <div class="section-heading">
+        <div>
+          <h2>Nasıl çalışır?</h2>
+          <p>Sistem mümkün olduğunca basit tutuldu.</p>
+        </div>
+      </div>
+
+      <div class="steps">
+        <article class="step">
+          <span>1</span>
+          <div>
+            <h3>Ürünü gir</h3>
+            <p>Ürün adı veya doğrudan mağaza linki kullanabilirsin.</p>
+          </div>
+        </article>
+        <article class="step">
+          <span>2</span>
+          <div>
+            <h3>Hedef fiyatı belirle</h3>
+            <p>Örneğin “3.500 TL ve altına gelince haber ver”.</p>
+          </div>
+        </article>
+        <article class="step">
+          <span>3</span>
+          <div>
+            <h3>Sistem fiyatı kontrol etsin</h3>
+            <p>Uygun kaynaklar taranır ve aynı ürün sonuçları karşılaştırılır.</p>
+          </div>
+        </article>
+        <article class="step">
+          <span>4</span>
+          <div>
+            <h3>Alarmı al</h3>
+            <p>Hedef fiyat yakalandığında e-posta bildirimi gönderilir.</p>
+          </div>
+        </article>
+      </div>
+
+      <div class="card info-card">
+        <h3>Gizlilik ve güvenlik</h3>
+        <p>
+          NVIDIA API anahtarı tarayıcıda tutulmaz. Anahtar yalnızca backend sunucusunda
+          environment variable olarak saklanmalıdır.
+        </p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="wrap">
+      Fiyat Alarmı • Demo/MVP
+    </div>
+  </footer>
+
+  <script src="./config.js"></script>
+  <script src="./app.js"></script>
+</body>
+</html>
