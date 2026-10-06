@@ -3,4 +3,4 @@
   GitHub Pages kullanıp backend'i başka yerde yayınlarsan örn:
   window.API_BASE = "https://senin-backend-adresin.onrender.com";
 */
-window.API_BASE = "";
+window.API_BASE = "https://fiyat-alarmi-api.onrender.com";
